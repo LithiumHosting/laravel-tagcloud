@@ -1,0 +1,30 @@
+{
+    "name": "lithiumdev/laravel-tagcloud",
+    "description": "A Laravel package for generating tag clouds.",
+    "keywords": [
+        "tagcloud",
+        "tag cloud",
+        "laravel",
+        "laravel tag cloud",
+        "laravel tagcloud"
+    ],
+    "homepage": "",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Troy Siedsma",
+            "email": "tsiedsma@lithiumhosting.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/support": "~5.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "LithiumDev\\TagCloud": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
