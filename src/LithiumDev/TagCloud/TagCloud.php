@@ -1,5 +1,4 @@
 <?php
-
 namespace LithiumDev\TagCloud;
 
 
@@ -8,10 +7,10 @@ class TagCloud {
     /**
      * Tag cloud version
      *
-     * @url https://github.com/lotsofcode/tag-cloud
+     * @url https://github.com/LithiumHosting/laravel-tagcloud
      * @var string
      */
-    public $version = '4.0.1';
+    public $version = '1.0.2';
     /**
      * Tag array container
      *
@@ -99,7 +98,7 @@ class TagCloud {
         'р' => 'r', 'Р' => 'r', 'с' => 's', 'С' => 's', 'т' => 't', 'Т' => 't', 'у' => 'u', 'У' => 'u',
         'ф' => 'f', 'Ф' => 'f', 'х' => 'h', 'Х' => 'h', 'ц' => 'c', 'Ц' => 'c', 'ч' => 'ch', 'Ч' => 'ch',
         'ш' => 'sh', 'Ш' => 'sh', 'щ' => 'sch', 'Щ' => 'sch', 'ъ' => '', 'Ъ' => '', 'ы' => 'y', 'Ы' => 'y',
-        'ь' => '', 'Ь' => '', 'э' => 'e', 'Э' => 'e', 'ю' => 'ju', 'Ю' => 'ju', 'я' => 'ja', 'Я' => 'ja'
+        'ь' => '', 'Ь' => '', 'э' => 'e', 'Э' => 'e', 'ю' => 'ju', 'Ю' => 'ju', 'я' => 'ja', 'Я' => 'ja',
     );
 
     /**
@@ -443,20 +442,6 @@ class TagCloud {
     }
 
     /**
-     * Assign a tag to be removed from the array
-     *
-     * @param string $tag The tag value
-     *
-     * @return $this
-     */
-    public function setRemoveTag($tag)
-    {
-        $this->removeTags[] = $this->formatTag($tag);
-
-        return $this;
-    }
-
-    /**
      * Reduces the array by removing strings with a
      * length shorter than the minLength
      *
@@ -542,6 +527,11 @@ class TagCloud {
      */
     protected function order($unsortedArray, $sortField, $sortWay = 'SORT_ASC')
     {
+        if (empty($unsortedArray))
+        {
+            return $unsortedArray;
+        }
+
         $sortedArray = array();
         foreach ($unsortedArray as $uniqid => $row)
         {
@@ -697,14 +687,31 @@ class TagCloud {
         $htmlizeTagFunction = $this->htmlizeTagFunction;
         if (isset($htmlizeTagFunction) &&
             is_callable($htmlizeTagFunction)
-        ) {
+        )
+        {
             // this cannot be written in one line or the PHP interpreter will puke
             // apparently, it's okay to have a function in a variable,
             // but it's not okay to have it in an instance-variable.
             return $htmlizeTagFunction($arrayInfo, $sizeRange);
-        } else {
+        }
+        else
+        {
             return "<span class='tag size{$sizeRange}'> &nbsp; {$arrayInfo['tag']} &nbsp; </span>";
         }
+    }
+
+    /**
+     * Assign a tag to be removed from the array
+     *
+     * @param string $tag The tag value
+     *
+     * @return $this
+     */
+    public function setRemoveTag($tag)
+    {
+        $this->removeTags[] = $this->formatTag($tag);
+
+        return $this;
     }
 
     /**

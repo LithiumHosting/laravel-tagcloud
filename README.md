@@ -8,7 +8,7 @@ We're always open to pull requests, feel free to make this your own or help us m
 (c) Lithium Hosting, llc
 
 ### License
-This library is licensed under the MIT license; you can find a full copy of the license itself in the file /LICENSE
+This library is licensed under the GNU GPL license; you can find a full copy of the license itself in the file /LICENSE
 
 ### Requirements
 - Laravel 5.2+
@@ -66,13 +66,13 @@ echo $cloud->render();
 #### Convert a string
 
 ```php
-$cloud->addString("This is a tag-cloud script, written by Del Harvey. I wrote this tag-cloud class because I just love writing code.");
+$cloud->addString("This is a tag-cloud script!");
 ```
 
 #### Adding multiple tags
 
 ```php
-$cloud->addTags(array('tag-cloud','php','github'));
+$cloud->addTags(array('laravel', 'laravel-tagcloud','php','github'));
 ```
 
 #### Removing a tag
@@ -84,7 +84,7 @@ $cloud->setRemoveTag('github');
 #### Removing multiple tags
 
 ```php
-$cloud->setRemoveTags(array('del','harvey'));
+$cloud->setRemoveTags(array('tag','cloud'));
 ```
 
 #### More complex adding
