@@ -650,21 +650,27 @@ class TagCloud {
      */
     protected function getClassFromPercent($percent)
     {
-        $class = floor(($percent / 10));
-
-        if ($percent >= 5)
-        {
-            $class++;
-        }
-
-        if ($percent >= 80 && $percent < 100)
-        {
+        if ($percent < 10):
+            $class = 1;
+        elseif ($percent >= 10 and $percent < 20):
+            $class = 2;
+        elseif ($percent >= 20 and $percent < 30):
+            $class = 3;
+        elseif ($percent >= 30 and $percent < 40):
+            $class = 4;
+        elseif ($percent >= 40 and $percent < 50):
+            $class = 5;
+        elseif ($percent >= 50 and $percent < 60):
+            $class = 6;
+        elseif ($percent >= 60 and $percent < 70):
+            $class = 7;
+        elseif ($percent >= 70 and $percent < 80):
             $class = 8;
-        }
-        elseif ($percent == 100)
-        {
+        elseif ($percent >= 80 and $percent < 90):
             $class = 9;
-        }
+        else:
+            $class = 10;
+        endif;
 
         return $class;
     }
