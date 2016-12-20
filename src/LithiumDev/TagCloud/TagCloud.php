@@ -171,8 +171,11 @@ class TagCloud {
                 case 'upper':
                     $string = $this->options['transliterate'] ? strtoupper($string) : mb_convert_case($string, MB_CASE_UPPER, "UTF-8");
                     break;
-                default:
+                case 'lower':
                     $string = $this->options['transliterate'] ? strtolower($string) : mb_convert_case($string, MB_CASE_LOWER, "UTF-8");
+                    break;
+                default:
+                    $string = $this->options['transliterate'] ? $string : mb_convert_encoding($string, "UTF-8");
             }
         }
         if ($this->options['trim'])
