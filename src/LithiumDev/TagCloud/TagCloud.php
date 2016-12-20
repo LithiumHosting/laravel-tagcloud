@@ -10,7 +10,7 @@ class TagCloud {
      * @url https://github.com/LithiumHosting/laravel-tagcloud
      * @var string
      */
-    public $version = '1.0.2';
+    public $version = '1.0.4';
     /**
      * Tag array container
      *
