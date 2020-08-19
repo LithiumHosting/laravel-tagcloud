@@ -1,0 +1,7 @@
+* text=auto
+*.css linguist-vendored
+*.less linguist-vendored
+
+# Declare files that will always have CRLF line endings on checkout.
+*.sh text eol=lf
+vagrant_aliases text eol=lf
